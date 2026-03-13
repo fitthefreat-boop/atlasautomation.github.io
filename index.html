@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas Automation — Agence IA & Marketing Digital | Casablanca</title>
+<meta name="description" content="Atlas Automation, agence IA et marketing digital à Casablanca. Gestion des réseaux sociaux, création vidéo, publicité digitale et automatisation IA pour les entreprises marocaines.">
+<meta property="og:title" content="Atlas Automation — Agence IA & Marketing Digital">
+<meta property="og:description" content="Nous transformons les marques marocaines en leaders digitaux grâce à l'IA et une stratégie de contenu sur mesure.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0a1628;
+  --blue:#1a3a6b;
+  --gold:#c9a84c;
+  --gold-light:#e8c97a;
+  --cream:#f8f4ed;
+  --white:#ffffff;
+  --gray:#8a8f9e;
+  --text:#1a1f2e;
+  --border:rgba(201,168,76,0.2);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:20px 60px;display:flex;align-items:center;justify-content:space-between;
+  transition:all 0.3s;
+}
+nav.scrolled{background:rgba(10,22,40,0.95);backdrop-filter:blur(12px);padding:14px 60px;box-shadow:0 2px 30px rgba(0,0,0,0.3)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:14px;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--navy);padding:9px 22px;border-radius:40px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--white);border-radius:2px;transition:all 0.3s;display:block}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--navy);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);font-size:24px;text-decoration:none;font-family:'Playfair Display',serif}
+.mobile-menu a:hover{color:var(--gold)}
+
+/* HERO */
+.hero{
+  background:var(--navy);min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;padding:120px 40px 80px;text-align:center;
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(201,168,76,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.06) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(26,58,107,0.9) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);border-radius:40px;
+  padding:7px 20px;margin-bottom:32px;font-size:12px;font-weight:500;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--gold);position:relative;z-index:1;
+  animation:fadeUp 0.7s ease both;
+}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+.hero h1{
+  font-family:'Playfair Display',serif;font-size:clamp(48px,8vw,90px);font-weight:900;
+  color:var(--white);line-height:1.0;position:relative;z-index:1;
+  animation:fadeUp 0.7s 0.15s ease both;
+}
+.hero h1 em{color:var(--gold);font-style:normal;display:block}
+.hero-sub{
+  font-size:18px;color:rgba(255,255,255,0.55);max-width:580px;
+  line-height:1.75;margin:24px auto 0;position:relative;z-index:1;
+  animation:fadeUp 0.7s 0.3s ease both;
+}
+.hero-stats{
+  display:flex;gap:56px;margin-top:60px;position:relative;z-index:1;
+  animation:fadeUp 0.7s 0.45s ease both;flex-wrap:wrap;justify-content:center;
+}
+.hero-stat{text-align:center}
+.hero-stat-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--gold)}
+.hero-stat-label{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;margin-top:6px}
+.hero-divider{width:1px;height:60px;background:rgba(255,255,255,0.1);align-self:center}
+.scroll-hint{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  color:rgba(255,255,255,0.25);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  display:flex;flex-direction:column;align-items:center;gap:10px;z-index:1;
+  animation:fadeUp 0.7s 0.7s ease both;
+}
+.scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,rgba(201,168,76,0.7),transparent);animation:scrollLine 2s infinite}
+
+/* CLIENTS */
+.clients-strip{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:36px 60px;overflow:hidden}
+.clients-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
+.clients-label{font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:var(--gray);white-space:nowrap;margin-right:8px}
+.client-pill{border:1px solid rgba(0,0,0,0.1);border-radius:40px;padding:8px 22px;font-size:13px;font-weight:500;color:var(--gray);background:var(--cream);transition:all 0.2s;cursor:default}
+.client-pill:hover{border-color:var(--gold);color:var(--navy);background:var(--white)}
+
+/* SECTIONS */
+.section{padding:100px 60px;max-width:1200px;margin:0 auto}
+.section-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,50px);font-weight:700;color:var(--navy);line-height:1.12}
+.section-title span{color:var(--gold)}
+
+/* CASE STUDIES */
+.cases-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;margin-top:52px}
+.case-card{background:var(--white);border:1px solid rgba(0,0,0,0.07);border-radius:20px;overflow:hidden;cursor:pointer;transition:all 0.3s;box-shadow:0 2px 16px rgba(0,0,0,0.04)}
+.case-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,0.12);border-color:var(--gold)}
+.case-header{height:190px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.case-icon{font-size:52px;position:relative;z-index:1}
+.case-tag{position:absolute;top:18px;right:18px;background:rgba(255,255,255,0.9);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:500;color:var(--navy);letter-spacing:0.05em}
+.case-body{padding:28px 32px 32px}
+.case-client{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:8px;font-weight:500}
+.case-title{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.3}
+.case-desc{font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:24px}
+.case-results{display:flex;gap:16px;flex-wrap:wrap}
+.case-result{background:var(--cream);border-radius:12px;padding:12px 16px;flex:1;min-width:80px}
+.case-result-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--navy)}
+.case-result-label{font-size:11px;color:var(--gray);margin-top:3px}
+
+/* SERVICES */
+.services-bg{background:var(--navy)}
+.services-section{padding:100px 60px;max-width:1200px;margin:0 auto}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;margin-top:52px;border:1px solid rgba(255,255,255,0.06);border-radius:18px;overflow:hidden}
+.service-item{padding:36px;background:rgba(255,255,255,0.03);border-right:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);transition:background 0.2s}
+.service-item:hover{background:rgba(201,168,76,0.07)}
+.service-num{font-size:11px;color:var(--gold);letter-spacing:0.1em;margin-bottom:18px;opacity:0.6}
+.service-name{font-family:'Playfair Display',serif;font-size:19px;color:var(--white);margin-bottom:12px;font-weight:600}
+.service-desc{font-size:13px;color:rgba(255,255,255,0.42);line-height:1.65}
+.service-tag{display:inline-block;margin-top:16px;font-size:11px;color:var(--gold);border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:4px 12px}
+
+/* TESTIMONIALS */
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;margin-top:52px}
+.testimonial-card{background:var(--white);border:1px solid rgba(0,0,0,0.07);border-radius:20px;padding:36px;position:relative;transition:all 0.2s;box-shadow:0 2px 16px rgba(0,0,0,0.04)}
+.testimonial-card:hover{border-color:var(--gold);box-shadow:0 12px 40px rgba(0,0,0,0.09)}
+.quote-mark{font-family:'Playfair Display',serif;font-size:80px;line-height:0.8;color:var(--gold);opacity:0.25;position:absolute;top:22px;left:30px}
+.testimonial-text{font-size:15px;line-height:1.8;color:var(--text);margin-top:28px;position:relative}
+.testimonial-author{display:flex;align-items:center;gap:14px;margin-top:26px;padding-top:22px;border-top:1px solid rgba(0,0,0,0.06)}
+.author-avatar{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--white);flex-shrink:0}
+.author-name{font-weight:500;font-size:14px;color:var(--navy)}
+.author-role{font-size:12px;color:var(--gray);margin-top:2px}
+.stars{color:var(--gold);font-size:14px;margin-top:8px;letter-spacing:3px}
+
+/* PROCESS */
+.process-strip{background:var(--navy);padding:100px 60px}
+.process-inner{max-width:1200px;margin:0 auto}
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:56px;position:relative}
+.process-steps::before{content:'';position:absolute;top:27px;left:10%;right:10%;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:0.25}
+.process-step{text-align:center;padding:0 16px}
+.step-circle{width:54px;height:54px;border-radius:50%;background:var(--navy);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold);position:relative;z-index:1;transition:all 0.2s}
+.process-step:hover .step-circle{background:var(--gold);color:var(--navy)}
+.step-title{font-size:13px;font-weight:500;color:var(--white);margin-bottom:10px}
+.step-desc{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.65}
+
+/* CTA */
+.cta-section{background:var(--navy);padding:100px 60px;text-align:center;position:relative;overflow:hidden}
+.cta-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.07) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,58px);font-weight:700;color:var(--white);line-height:1.08;position:relative;z-index:1;margin-bottom:18px}
+.cta-title span{color:var(--gold)}
+.cta-sub{font-size:17px;color:rgba(255,255,255,0.45);max-width:500px;margin:0 auto 40px;line-height:1.75;position:relative;z-index:1}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);font-weight:600;font-size:15px;padding:17px 40px;border-radius:50px;text-decoration:none;position:relative;z-index:1;cursor:pointer;border:none;transition:all 0.2s;letter-spacing:0.02em}
+.cta-btn:hover{background:var(--gold-light);transform:translateY(-3px);box-shadow:0 16px 40px rgba(201,168,76,0.3)}
+.cta-contact{display:flex;gap:40px;justify-content:center;margin-top:44px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-contact-item{font-size:14px;color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:8px}
+.cta-contact-item a{color:rgba(255,255,255,0.65);text-decoration:none;transition:color 0.2s}
+.cta-contact-item a:hover{color:var(--gold)}
+
+/* FOOTER */
+footer{background:#060d1a;padding:36px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white)}
+.footer-logo span{color:var(--gold)}
+.footer-right{font-size:12px;color:rgba(255,255,255,0.2)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.75)}}
+@keyframes scrollLine{0%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1;transform:scaleY(1)}100%{opacity:0;transform:scaleY(1);transform-origin:bottom}}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.75s ease,transform 0.75s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:16px 24px}
+  nav.scrolled{padding:12px 24px}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .hero{padding:100px 24px 80px}
+  .hero-stats{gap:28px}
+  .hero-divider{display:none}
+  .clients-strip{padding:28px 24px}
+  .section{padding:72px 24px}
+  .services-section,.process-strip,.cta-section{padding:72px 24px}
+  .process-steps{grid-template-columns:1fr 1fr;gap:32px}
+  .process-steps::before{display:none}
+  footer{padding:28px 24px;flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Atlas <span>Automation</span></a>
+  <ul class="nav-links">
+    <li><a href="#cas">Études de cas</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#temoignages">Témoignages</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Appel gratuit →</a>
+  <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#cas" onclick="document.getElementById('mobileMenu').classList.remove('open')">Études de cas</a>
+  <a href="#services" onclick="document.getElementById('mobileMenu').classList.remove('open')">Services</a>
+  <a href="#temoignages" onclick="document.getElementById('mobileMenu').classList.remove('open')">Témoignages</a>
+  <a href="#contact" onclick="document.getElementById('mobileMenu').classList.remove('open')">Contact</a>
+  <a href="#contact" class="nav-cta" onclick="document.getElementById('mobileMenu').classList.remove('open')">Appel gratuit →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-badge"><span class="hero-badge-dot"></span>Agence IA &amp; Marketing Digital — Casablanca</div>
+  <h1>Atlas<em>Automation</em></h1>
+  <p class="hero-sub">Nous transformons les marques marocaines en leaders digitaux — grâce à l'intelligence artificielle et à une stratégie de contenu sur mesure.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-target="15" data-suffix="+">0</div>
+      <div class="hero-stat-label">Clients actifs</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-target="3" data-suffix="">0</div>
+      <div class="hero-stat-label">Secteurs couverts</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-target="280" data-suffix="+">0</div>
+      <div class="hero-stat-label">Contenus/mois produits</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-target="98" data-suffix="%">0</div>
+      <div class="hero-stat-label">Clients satisfaits</div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Découvrir</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<div class="clients-strip">
+  <div class="clients-inner">
+    <span class="clients-label">Ils nous font confiance</span>
+    <div class="client-pill">Multiprobat</div>
+    <div class="client-pill">ANOUAR ZZ SARL</div>
+    <div class="client-pill">Water Drop</div>
+    <div class="client-pill">Promoteur Immo Casablanca</div>
+    <div class="client-pill">Cabinet BET Maroc</div>
+    <div class="client-pill">Agropole Meknès</div>
+  </div>
+</div>
+
+<!-- CASE STUDIES -->
+<div style="background:var(--cream)" id="cas">
+  <div class="section reveal">
+    <div class="section-eyebrow">Études de cas</div>
+    <div class="section-title">Résultats <span>concrets</span>,<br>pas des promesses</div>
+    <div class="cases-grid">
+      <div class="case-card reveal reveal-delay-1">
+        <div class="case-header" style="background:linear-gradient(135deg,#0a1628,#1a3a6b)">
+          <div class="case-icon">🏗️</div>
+          <div class="case-tag">B2B Construction</div>
+        </div>
+        <div class="case-body">
+          <div class="case-client">Multiprobat — Casablanca</div>
+          <div class="case-title">De zéro présence digitale à leader sectoriel</div>
+          <div class="case-desc">Stratégie complète réseaux sociaux + production vidéo mensuelle. Contenus techniques bilingues FR/Darija ciblant architectes et BET.</div>
+          <div class="case-results">
+            <div class="case-result"><div class="case-result-num">+340%</div><div class="case-result-label">Portée LinkedIn</div></div>
+            <div class="case-result"><div class="case-result-num">22</div><div class="case-result-label">Leads/mois</div></div>
+            <div class="case-result"><div class="case-result-num">4.8x</div><div class="case-result-label">ROI contenu</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card reveal reveal-delay-2">
+        <div class="case-header" style="background:linear-gradient(135deg,#0c2340,#1a5276)">
+          <div class="case-icon">💧</div>
+          <div class="case-tag">Géophysique</div>
+        </div>
+        <div class="case-body">
+          <div class="case-client">Water Drop — Maroc</div>
+          <div class="case-title">Lancement digital d'un service géophysique inédit</div>
+          <div class="case-desc">Création de A à Z : identité de marque, scripts vidéo IA, campagnes Meta Ads ciblant agriculteurs et promoteurs immobiliers ruraux.</div>
+          <div class="case-results">
+            <div class="case-result"><div class="case-result-num">180K</div><div class="case-result-label">Vues vidéo</div></div>
+            <div class="case-result"><div class="case-result-num">65</div><div class="case-result-label">Demandes devis</div></div>
+            <div class="case-result"><div class="case-result-num">2 mois</div><div class="case-result-label">Pour rentabiliser</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card reveal reveal-delay-3">
+        <div class="case-header" style="background:linear-gradient(135deg,#1a1f0a,#2e4a1a)">
+          <div class="case-icon">📊</div>
+          <div class="case-tag">Expertise Comptable</div>
+        </div>
+        <div class="case-body">
+          <div class="case-client">ANOUAR ZZ SARL A.U. — Fès</div>
+          <div class="case-title">Crédibilité digitale pour un cabinet comptable</div>
+          <div class="case-desc">Refonte de l'image digitale, contenu éducatif sur la fiscalité marocaine et campagne d'acquisition de nouveaux clients PME.</div>
+          <div class="case-results">
+            <div class="case-result"><div class="case-result-num">+190%</div><div class="case-result-label">Trafic site</div></div>
+            <div class="case-result"><div class="case-result-num">12</div><div class="case-result-label">Nouveaux clients</div></div>
+            <div class="case-result"><div class="case-result-num">4.9★</div><div class="case-result-label">Note Google</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="services-bg" id="services">
+  <div class="services-section reveal">
+    <div class="section-eyebrow" style="color:var(--gold)">Nos services</div>
+    <div class="section-title" style="color:var(--white)">Ce que nous <span>faisons</span><br>mieux que tout le monde</div>
+    <div class="services-grid">
+      <div class="service-item"><div class="service-num">01</div><div class="service-name">Gestion Réseaux Sociaux</div><div class="service-desc">Stratégie éditoriale, production de contenu, community management quotidien et reporting mensuel sur toutes vos plateformes.</div><div class="service-tag">LinkedIn · Facebook · Instagram</div></div>
+      <div class="service-item"><div class="service-num">02</div><div class="service-name">Création Vidéo &amp; Contenu</div><div class="service-desc">Scripts IA, tutoriels d'installation, portraits clients, reels produits — du concept à la publication en FR et Darija.</div><div class="service-tag">YouTube · Reels · Shorts</div></div>
+      <div class="service-item"><div class="service-num">03</div><div class="service-name">Publicité Digitale IA</div><div class="service-desc">Campagnes Meta Ads et Google Ads pilotées par IA pour un ciblage précis des décideurs B2B et un ROI maximisé.</div><div class="service-tag">Meta Ads · Google Ads</div></div>
+      <div class="service-item"><div class="service-num">04</div><div class="service-name">Chatbot &amp; Automatisation</div><div class="service-desc">Assistant IA formé sur votre catalogue produit — répond 24h/7j, génère des devis et qualifie vos leads automatiquement.</div><div class="service-tag">WhatsApp · Site Web · Lead Gen</div></div>
+      <div class="service-item"><div class="service-num">05</div><div class="service-name">SEO &amp; Visibilité Locale</div><div class="service-desc">Optimisation Google Business, articles SEO bilingues et stratégie de référencement local pour dominer votre marché au Maroc.</div><div class="service-tag">SEO · Google Business</div></div>
+      <div class="service-item"><div class="service-num">06</div><div class="service-name">Identité de Marque Digitale</div><div class="service-desc">Templates visuels, charte graphique réseaux sociaux, guide de ton de voix — une marque cohérente sur tous les canaux.</div><div class="service-tag">Branding · Design · Templates</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div style="background:var(--cream)" id="temoignages">
+  <div class="section reveal">
+    <div class="section-eyebrow">Témoignages</div>
+    <div class="section-title">Ce que disent<br><span>nos clients</span></div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-text">Atlas Automation a complètement transformé notre présence digitale. En moins de 3 mois, nous recevions des demandes de devis via LinkedIn — quelque chose que nous n'avions jamais vécu en 30 ans d'activité.</div>
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:var(--blue)">MB</div>
+          <div><div class="author-name">Mohammed B.</div><div class="author-role">Directeur Commercial — Multiprobat</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-text">Grâce à leur stratégie vidéo en Darija, nos clients comprenaient enfin le service Water Drop sans qu'on ait besoin de tout expliquer par téléphone. Le contenu a travaillé pour nous 24h/24.</div>
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#1a5276">KA</div>
+          <div><div class="author-name">Khalid A.</div><div class="author-role">Fondateur — Water Drop Maroc</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-3">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-text">Le rapport qualité-prix est imbattable. En tant que cabinet comptable, nous n'avions pas les moyens d'une grande agence — Atlas Automation nous a apporté des résultats dignes des meilleurs.</div>
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#2e4a1a">AZ</div>
+          <div><div class="author-name">Anouar Z.</div><div class="author-role">Gérant — ANOUAR ZZ SARL A.U., Fès</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="process-strip">
+  <div class="process-inner reveal">
+    <div class="section-eyebrow" style="color:var(--gold)">Notre méthode</div>
+    <div class="section-title" style="color:var(--white)">Un processus <span>éprouvé</span><br>en 5 étapes</div>
+    <div class="process-steps">
+      <div class="process-step"><div class="step-circle">1</div><div class="step-title">Audit &amp; Découverte</div><div class="step-desc">Analyse complète de votre marque, vos concurrents et votre audience cible.</div></div>
+      <div class="process-step"><div class="step-circle">2</div><div class="step-title">Stratégie sur mesure</div><div class="step-desc">Calendrier éditorial, piliers de contenu et plan de distribution adapté à votre secteur.</div></div>
+      <div class="process-step"><div class="step-circle">3</div><div class="step-title">Production IA</div><div class="step-desc">Scripts, visuels, vidéos et articles produits par notre équipe augmentée par l'IA.</div></div>
+      <div class="process-step"><div class="step-circle">4</div><div class="step-title">Publication &amp; Gestion</div><div class="step-desc">Planification, publication et community management actif sur toutes vos plateformes.</div></div>
+      <div class="process-step"><div class="step-circle">5</div><div class="step-title">Analyse &amp; Optimisation</div><div class="step-desc">Rapport mensuel détaillé et ajustements continus pour maximiser vos résultats.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section" id="contact">
+  <div class="cta-glow"></div>
+  <div class="section-eyebrow" style="color:var(--gold);position:relative;z-index:1">Travaillons ensemble</div>
+  <div class="cta-title">Prêt à faire<br><span>décoller votre marque ?</span></div>
+  <p class="cta-sub">Réservez un appel de découverte gratuit de 30 minutes. Nous analysons votre présence digitale et vous proposons un plan d'action concret.</p>
+  <a href="mailto:contact@atlasautomation.ma" class="cta-btn">Réserver mon appel gratuit →</a>
+  <div class="cta-contact">
+    <div class="cta-contact-item">📧 <a href="mailto:contact@atlasautomation.ma">contact@atlasautomation.ma</a></div>
+    <div class="cta-contact-item">📱 <a href="tel:+212600000000">+212 6XX XXX XXX</a></div>
+    <div class="cta-contact-item">📍 <span>Casablanca, Maroc</span></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Atlas <span>Automation</span></div>
+  <div class="footer-right">© 2025 Atlas Automation — Tous droits réservés</div>
+</footer>
+
+<script>
+// Navbar scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60);
+});
+
+// Counter animation
+document.querySelectorAll('[data-target]').forEach(el=>{
+  const target=parseInt(el.dataset.target);
+  const suffix=el.dataset.suffix||'';
+  let started=false;
+  const obs=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting&&!started){
+      started=true;
+      const t0=performance.now();
+      const dur=1800;
+      const update=now=>{
+        const p=Math.min((now-t0)/dur,1);
+        const e=1-Math.pow(1-p,3);
+        el.textContent=Math.floor(e*target)+suffix;
+        if(p<1)requestAnimationFrame(update);
+        else el.textContent=target+suffix;
+      };
+      requestAnimationFrame(update);
+    }
+  });
+  obs.observe(el);
+});
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
